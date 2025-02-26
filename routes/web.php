@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductoController;
 
+// Ruta para la página de inicio
 Route::view('/', 'welcome');
-Route::resource("productos", App\Http\Controllers\ProductoController::class);
+
+// Rutas para el recurso 'productos'
+Route::resource('productos', ProductoController::class);
