@@ -10,8 +10,7 @@
     <body> 
         <header>
             
-
-            @include('layouts.navigation')
+           @include('layouts.navigation')
 
         </header>
 

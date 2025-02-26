@@ -1,21 +1,34 @@
-@extends('layouts.app')
-
-@section('titulo','pagina principal')
-
-@section('contenido')
-    <div
-         class="hero min-h-screen"
-         style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
-         <div class="hero-overlay bg-opacity-60"></div>
-         <div class="hero-content text-neutral-content text-center">
-             <div class="max-w-md">
-               <h1 class="mb-5 text-5xl font-bold">Disfruta de los mejores Sandwich Artesanales</h1>
-                <p class="mb-5">
-                 Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                 quasi. In deleniti eaque aut repudiandae et a id nisi.
-                </p>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
+<!-- resources/views/welcome.blade.php -->
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandwich2024</title>
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Barra de navegación -->
+    <nav class="navbar bg-base-100 shadow-md">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl">
+                <img src="/logo.png" alt="Logo" class="w-8 h-8 mr-2"> Sandwich2024
+            </a>
         </div>
-    </div>
-@endsection
+        <div class="flex-none">
+            <ul class="menu menu-horizontal p-0">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li>
+                    <details>
+                        <summary>Más</summary>
+                        <ul class="p-2 bg-base-100">
+                            <li><a href="#sobre">Sobre Nosotros</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+    </nav>

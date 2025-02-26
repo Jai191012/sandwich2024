@@ -1,10 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*registro de rutas 
-
-*/
+use App\Http\Controllers\HomeController;
 
 Route::view('/', 'welcome');
 Route::resource("productos", App\Http\Controllers\ProductoController::class);
