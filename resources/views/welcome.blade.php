@@ -40,7 +40,7 @@
             <div class="max-w-md">
                 <h1 class="text-5xl font-bold">Bienvenido a Sandwich Artesanos</h1>
                 <p class="py-6">Gestiona tus pedidos, clientes y entregas de forma rápida y eficiente.</p>
-                <a href="/api/documentation" class="btn btn-primary">AQUI EL MEJOR SABOR</a>
+                <a href="/productos" class="btn btn-primary">AQUI EL MEJOR SABOR</a>
             </div>
         </div>
     </section>

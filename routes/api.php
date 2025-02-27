@@ -2,28 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Página de inicio
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\Api\V1\ProductoController;
 
-// Rutas para la API
-Route::prefix('api')->group(function () {
-    Route::get('/documentation', function () {
-        return redirect('https://sandwich2024.test/api/documentation');
-    });
-});
+Route::apiResource('productos', ProductoController::class);
 
-// Rutas para gestión desde el navegador
-Route::prefix('pedidos')->group(function () {
-    Route::get('/', [App\Http\Controllers\OrderController::class, 'index'])->name('pedidos.index');
-    Route::get('/crear', [App\Http\Controllers\OrderController::class, 'create'])->name('pedidos.create');
-});
 
-Route::prefix('clientes')->group(function () {
-    Route::get('/', [App\Http\Controllers\ClientController::class, 'index'])->name('clientes.index');
-});
-
-Route::prefix('entregas')->group(function () {
-    Route::get('/', [App\Http\Controllers\DeliveryController::class, 'index'])->name('entregas.index');
+Route::prefix('productos')->group(function () {
+    Route::get('/', [ProductoController::class, 'index']);    // Obtener todos
+    Route::post('/', [ProductoController::class, 'store']);   // Crear pedido
+    Route::get('{id}', [ProductoController::class, 'show']);  // Obtener un pedido
+    Route::put('{id}', [ProductoController::class, 'update']);// Actualizar
+    Route::delete('{id}', [ProductoController::class, 'destroy']); // Eliminar
 });
