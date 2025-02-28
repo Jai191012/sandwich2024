@@ -9,14 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('descripcion')->nullable(); // Restricciones de la base de datos
-            $table->decimal('precio');
-            $table->integer('stock');
+            $table->id(); // Esto asegura un ID autoincremental
+            $table->string('nombre', 100); // Definir longitud máxima
+            $table->string('descripcion', 255)->nullable();
+            $table->decimal('precio', 10, 2); // Definir precisión del precio
+            $table->integer('stock')->unsigned(); // Asegurar que el stock no sea negativo
             $table->timestamps();
         });
     }

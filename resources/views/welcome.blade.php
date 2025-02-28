@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.12/dist/full.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100">
+    
 <!-- Barra de navegación -->
 <nav class="navbar bg-base-200 px-4 shadow-md">
     <div class="flex-1">
@@ -40,7 +41,7 @@
             <div class="max-w-md">
                 <h1 class="text-5xl font-bold">Bienvenido a Sandwich Artesanos</h1>
                 <p class="py-6">Gestiona tus pedidos, clientes y entregas de forma rápida y eficiente.</p>
-                <a href="/productos" class="btn btn-primary">AQUI EL MEJOR SABOR</a>
+                <a href="/productos" class="btn btn-primary">productos</a>
             </div>
         </div>
     </section>
