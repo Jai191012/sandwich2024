@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -17,4 +18,17 @@ class ProductoController extends Controller
         // Pasar los datos a la vista
         return view('productos', compact('productos'));
     }
+
+    public function destroy($id)
+    {
+        // Hacer una solicitud DELETE a la API
+        $response = Http::delete("http://sandwich2024.test/api/v1/productos/{$id}");
+
+        if ($response->successful()) {
+            return response()->json(['message' => 'Producto eliminado correctamente']);
+        } else {
+            return response()->json(['error' => 'Error al eliminar el producto'], $response->status());
+        }
+    }
 }
+

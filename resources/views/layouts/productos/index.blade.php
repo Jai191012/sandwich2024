@@ -1,56 +1,41 @@
 @extends('layouts.app')
 
-@section('titulo', 'Lista de Productos')
-
-@section('contenido')
-<div class="container mx-auto px-4 my-6">
+@section('content')
+<div class="container">
+    <h1 class="mb-4">Lista de Productos</h1>
+    
     <!-- Botón para agregar un nuevo producto -->
-    <div class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-bold">Lista de Productos</h1>
-        <a href="{{ route('productos.create') }}" class="btn btn-primary">+ Agregar Producto</a>
-    </div>
+    <a href="{{ route('productos.create') }}" class="btn btn-success mb-3">Agregar Producto</a>
 
-    <!-- Verificar si hay productos -->
-    @if ($productos->count() > 0)
-        <!-- Tabla de productos -->
-        <div class="overflow-x-auto">
-            <table class="table w-full">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Stock</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($productos as $producto)
-                        <tr>
-                            <td>{{ $producto->id }}</td>
-                            <td>{{ $producto->nombre }}</td>
-                            <td>${{ number_format($producto->precio, 2) }}</td>
-                            <td>{{ $producto->stock }}</td>
-                            <td class="flex space-x-2">
-                                <!-- Botón para editar producto -->
-                                <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-secondary btn-sm">Editar</a>
-                                <!-- Formulario para eliminar producto -->
-                                <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este producto?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    @if ($productos)
+        <div class="row">
+            @foreach ($productos as $producto)
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $producto['nombre'] }}</h5>
+                            <p class="card-text">Precio: ${{ number_format($producto['precio'], 2) }}</p>
+                            <p class="card-text">Stock: {{ $producto['stock'] }}</p>
+
+                            <!-- Botones de Editar y Eliminar -->
+                            <a href="{{ route('productos.edit', $producto['id']) }}" class="btn btn-primary">Editar</a>
+
+                            <form action="{{ route('productos.destroy', $producto['id']) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     @else
-        <!-- Mensaje cuando no hay productos -->
-        <div class="text-center text-gray-500 mt-6">
-            <p>No hay productos disponibles.</p>
-        </div>
+        <p>No hay productos disponibles.</p>
     @endif
 </div>
 @endsection

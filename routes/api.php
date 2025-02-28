@@ -13,4 +13,10 @@ Route::prefix('productos')->group(function () {
     Route::get('{id}',[ProductoController::class, 'show']);   //
     Route::put('{id}', [ProductoController::class, 'update']);// Actualizar
     Route::delete('{id}', [ProductoController::class, 'destroy']); // Eliminar
+    
+    Route::prefix('v1')->group(function () {
+    Route::apiResource('productos', ProductoController::class);
 });
+
+});
+
