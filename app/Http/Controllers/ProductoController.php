@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Producto; // Corregido: Mayúscula en "App"
 
 class ProductoController extends Controller
 {
@@ -29,6 +30,7 @@ class ProductoController extends Controller
         } else {
             return response()->json(['error' => 'Error al eliminar el producto'], $response->status());
         }
-    }
+    } // 🔹 Faltaba esta llave de cierre
 }
+
 

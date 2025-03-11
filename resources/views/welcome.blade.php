@@ -29,7 +29,7 @@
             <div class="max-w-md">
                 <h1 class="text-5xl font-bold text-black">Bienvenido a Sandwich Artesanos</h1>
                 <p class="py-6 text- shadow-xl">Gestiona tus pedidos, clientes y entregas de forma rápida y eficiente.</p>
-                 <a href="/productos" class="btn  btn-primary">Ver Productos</a>
+                <a href="{{ route('login') }}" class="btn btn-primary">INICIO</a>
             </div>
         </div>
     </section>
