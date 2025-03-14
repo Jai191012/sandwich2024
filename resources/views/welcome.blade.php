@@ -24,15 +24,43 @@
     
 
     <!-- Héroe centrado -->
-    <section class="hero min-h-screen bg-base-100" style="background-image: url('https://static.vecteezy.com/system/resources/previews/007/934/064/original/sandwich-cartoon-flat-design-illustration-vector.jpg'); background-repeat: no-repeat; background-position: center;">
-        <div class="hero-content text-center">
-            <div class="max-w-md">
-                <h1 class="text-5xl font-bold text-black">Bienvenido a Sandwich Artesanos</h1>
-                <p class="py-6 text- shadow-xl">Gestiona tus pedidos, clientes y entregas de forma rápida y eficiente.</p>
-                <a href="{{ route('login') }}" class="btn btn-primary">INICIO</a>
+    <section class="hero min-h-screen bg-base-100">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+          <div class="text-center lg:text-left">
+            <h1 class="text-5xl font-bold">¡Inicia sesión ahora!</h1>
+            <p class="py-6">
+              Accede a tu cuenta para gestionar pedidos, clientes y entregas de manera eficiente.
+            </p>
+          </div>
+          <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <div class="card-body">
+              <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <fieldset class="fieldset">
+                  <label class="fieldset-label">Correo Electrónico</label>
+                  <input type="email" name="email" class="input input-bordered w-full" placeholder="Correo" required />
+      
+                  <label class="fieldset-label mt-4">Contraseña</label>
+                  <input type="password" name="password" class="input input-bordered w-full" placeholder="Contraseña" required />
+      
+                  <div class="mt-2">
+                    <a href="{{ route('password.request') }}" class="link link-hover text-sm">¿Olvidaste tu contraseña?</a>
+                  </div>
+      
+                  <button type="submit" class="btn btn-primary mt-4 w-full">Iniciar Sesión</button>
+                </fieldset>
+              </form>
+      
+              <div class="text-center mt-4">
+                <p class="text-sm">¿No tienes cuenta? 
+                  <a href="{{ route('register') }}" class="text-blue-500 link-hover">Regístrate</a>
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
+      
 
     <!-- Pie de página -->
     <footer class="footer footer-center p-4 bg-base-200 text-base-content">

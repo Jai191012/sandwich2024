@@ -11,6 +11,10 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+                <div class="p-6">
+                    <a href="{{ route('register') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Crear Usuario</a>
+                    <a href="{{ route('login') }}" class="ml-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">Iniciar Sesión</a>
+                </div>
             </div>
         </div>
     </div>
